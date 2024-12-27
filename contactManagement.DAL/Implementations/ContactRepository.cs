@@ -43,7 +43,7 @@ namespace contactManagement.DAL.Implementations
 
         public Task<IEnumerable<Contact>> GetAll()
         {
-            return Task.FromResult<IEnumerable<Contact>>(_entities);
+            return Task.FromResult<IEnumerable<Contact>>(_entities.OrderBy(x=>x.Id));
         }
 
         public async Task SaveChanges()
