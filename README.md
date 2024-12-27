@@ -14,8 +14,8 @@ Angular CLI: 17.3.11
 Angular: 17.3.12  
 
 
-Setup Project
-git clone 
+**Setup Project:**  
+git clone https://github.com/prasantagithub07/contactManagement.git  
 
 **install npm packages and restore dotnet nuget pakages in command promt:**  
 npm install  
