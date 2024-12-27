@@ -1,0 +1,38 @@
+
+    <form #form="ngForm" [formGroup]="contactForm"  (ngSubmit)="saveData()">
+        <h2 *ngIf="contactForm.controls['id'].value==0">Create Contact</h2>
+        <h2 *ngIf="contactForm.controls['id'].value!=0">Edit Contact</h2>
+        <hr>
+        
+        <div class="form-floating mb-3">
+            
+            <input type="text" class="form-control" name="firstName" formControlName="firstName"  placeholder="First Name" />
+            <label for="floatingInput">First Name</label>
+            <div *ngIf="contactForm.controls['firstName'].errors && (form.submitted || contactForm.controls['firstName'].dirty)"
+                class="text-danger">
+                <span [hidden]="!contactForm.controls['firstName'].errors.required">Please Enter First Name</span>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="lastName" formControlName="lastName"  placeholder="Last Name" />
+            <label for="floatingInput">Last Name</label>
+            <div *ngIf="contactForm.controls['lastName'].errors && (form.submitted || contactForm.controls['lastName'].dirty)"
+                class="text-danger">
+                <span [hidden]="!contactForm.controls['lastName'].errors.required">Please Enter Last Name</span>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" name="email" formControlName="email" placeholder="Last Name"/>
+            <label for="floatingInput">Email</label>
+            <div *ngIf="contactForm.controls['email'].errors && (form.submitted || contactForm.controls['email'].dirty)"
+                class="text-danger">
+                <span [hidden]="!contactForm.controls['email'].errors.required">Please Enter Email</span>
+                <span [hidden]="!contactForm.controls['email'].errors.email">Please Enter Valid Email</span>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            &nbsp;<a [routerLink]="['/contacts']" class="btn btn-warning">Cancel</a>
+        </div>
+    </form>
+

@@ -1,0 +1,5 @@
+@contactManagement.APIs_HostAddress = http://localhost:5010
+
+GET {{contactManagement.APIs_HostAddress}}/weatherforecast/
+Accept: application/json
+###

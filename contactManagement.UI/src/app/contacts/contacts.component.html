@@ -1,0 +1,32 @@
+<h2>Contatc List</h2>
+<hr>
+<a [routerLink]="['/contact']" class="btn btn-success">Create</a>
+
+<div *ngIf="contacts.length==0" class="d-flex justify-content-center" style="position: fixed;left: 50%;top: 50%">
+    <div class="spinner-grow text-primary" role="status">
+      <!-- <span class="sr-only">Loading...</span> -->
+    </div>
+  </div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of contacts">
+            <td>{{item.id}}</td>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td>
+                <a [routerLink]="['/contact',item.id]" class="btn btn-primary">Edit</a>
+                &nbsp; <a (click)="deleteContact(item.id)" class="btn btn-danger">Delete</a>
+            </td>           
+        </tr>
+    </tbody>
+</table>
