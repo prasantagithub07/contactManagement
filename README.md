@@ -17,10 +17,6 @@ Angular: 17.3.12
 **Setup Project:**  
 git clone https://github.com/prasantagithub07/contactManagement.git  
 
-**install npm packages and restore dotnet nuget pakages in command promt:**  
-npm install  
-dotnet restore  
-
 ## **Run Backend Project**  
 Open Command Prompt -> Goto **"contactManagement.APIs"** folder path  
 **Run below mention commands:**  
