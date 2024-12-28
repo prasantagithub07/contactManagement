@@ -21,7 +21,7 @@ namespace contactManagement.APIs.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Contact>> GetAll()
+        public async Task<ActionResult<ContactModel>> GetAll()
         {
             return Ok(await _contactService.GetAll());
         }
