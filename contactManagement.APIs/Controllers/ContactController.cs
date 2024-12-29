@@ -21,9 +21,11 @@ namespace contactManagement.APIs.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAll()
+        public async Task<ActionResult<IEnumerable<ContactModel>>> GetAll()
         {
-            return Ok(await _contactService.GetAll());
+            var entities = await _contactService.GetAll();
+            var models = _mapper.Map<IEnumerable<ContactModel>>(entities);
+            return Ok(models);
         }
 
         [HttpGet("{id}")]
