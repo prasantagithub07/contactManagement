@@ -1,1 +1,129 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* General Toast Styles */
+.toast {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean and modern font */
+    font-size: 16px; /* Standard, legible font size */
+    color: #fff; /* White text for better contrast */
+    border-radius: 10px; /* Rounded corners for a sleek look */
+    padding: 12px 20px; /* Padding for a spacious and balanced design */
+    background-color: rgba(0, 0, 0, 0.75); /* Dark semi-transparent background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for floating effect */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transitions for fade and movement */
+    opacity: 0.95; /* Slight opacity for a modern, minimal feel */
+    /* margin: 10px; */
+  }
+  
+  /* Toast Title (Bold and prominent) */
+  .toast-title {
+    font-weight: bold;
+    font-size: 17px; /* Slightly larger title */
+    margin-bottom: 5px; /* Space between title and message */
+  }
+  
+  /* Toast Message (Simple, clean, and readable) */
+  .toast-message {
+    font-size: 15px; /* Standard font size for the message */
+    line-height: 1.4; /* Improved readability */
+  }
+  
+  /* Success Toast (Green color with subtle shadow) */
+  .toast-success {
+    background-color: #28a745 !important; /* Green background for success */
+    border-left: 5px solid #218838; /* Left border to indicate success */
+  }
+  
+  /* Error Toast (Red color with subtle shadow) */
+  .toast-error {
+    background-color: #dc3545 !important; /* Red background for error */
+    border-left: 5px solid #c82333; /* Left border to indicate error */
+  }
+  
+  /* Warning Toast (Yellow-orange color with subtle shadow) */
+  .toast-warning {
+    background-color: #ffc107 !important; /* Yellow-orange background for warning */
+    border-left: 5px solid #e0a800; /* Left border to indicate warning */
+  }
+  
+  /* Info Toast (Blue color with subtle shadow) */
+  .toast-info {
+    background-color: #17a2b8 !important; /* Blue background for info */
+    border-left: 5px solid #138496; /* Left border to indicate info */
+  }
+  
+  /* Custom Positioning for Toast (Top-center position) */
+  .toast-top-center {
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important; /* Center horizontally */
+  }
+  
+  /* Custom Positioning for Toast (Bottom-center position) */
+  .toast-bottom-center {
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important; /* Center horizontally */
+  }
+  
+  /* Custom Progress Bar */
+  .toast-progress-bar {
+    height: 4px; /* Slim progress bar for a clean look */
+    background-color: #ffffff; /* White progress bar */
+    opacity: 0.6; /* Slight opacity for progress bar */
+    border-radius: 5px; /* Rounded edges for progress bar */
+  }
+  
+  /* Close Button (Clean and modern) */
+  .toast-close-button {
+    color: #ffffff !important; /* White color for the close button */
+    font-size: 18px !important; /* Slightly larger close button */
+    opacity: 1 !important;
+    background: none !important; /* No background for the button */
+    border: none !important; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 10px; /* Space between the message and the close button */
+  }
+  
+  /* Close Button Hover Effect */
+  .toast-close-button:hover {
+    opacity: 1 !important; /* Full opacity when hovered */
+    transform: scale(1.1); /* Slight zoom effect */
+    transition: transform 0.2s ease-in-out; /* Smooth zoom-in effect */
+  }
+  
+  /* Toast Enter Animation (Slide in from the top) */
+  .toast.ng-enter {
+    transform: translateY(-30px); /* Slide in from the top */
+    opacity: 0;
+  }
+  
+  /* Toast Exit Animation (Slide out to the bottom) */
+  .toast.ng-leave {
+    transform: translateY(30px); /* Slide out to the bottom */
+    opacity: 0;
+  }
+  
+  /* Custom Toast Positioning (Top-left corner) */
+  .toast-top-left {
+    top: 20px !important;
+    left: 20px !important;
+  }
+  
+  /* Custom Toast Positioning (Top-right corner) */
+  .toast-top-right {
+    top: 20px !important;
+    right: 20px !important;
+  }
+  
+  /* Custom Toast Positioning (Bottom-left corner) */
+  .toast-bottom-left {
+    bottom: 20px !important;
+    left: 20px !important;
+  }
+  
+  /* Custom Toast Positioning (Bottom-right corner) */
+  .toast-bottom-right {
+    bottom: 20px !important;
+    right: 20px !important;
+  }

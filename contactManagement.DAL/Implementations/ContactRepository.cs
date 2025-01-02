@@ -24,8 +24,16 @@ namespace contactManagement.DAL.Implementations
 
         public void Add(Contact entity)
         {
-            int maxId = _entities.Max(e => e.Id);
-            entity.Id = maxId + 1;
+            int maxId = 1;
+            if (_entities.Count > 0)
+            {
+                maxId = _entities.Max(e => e.Id);
+                entity.Id = maxId + 1;
+            }
+            else
+            {
+                entity.Id = maxId;
+            }
             _entities.Add(entity);
         }
 

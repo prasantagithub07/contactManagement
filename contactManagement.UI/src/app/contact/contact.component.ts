@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Contact } from '../models/contact';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ContactService } from '../services/contact.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import{ ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -12,8 +13,10 @@ import { ContactService } from '../services/contact.service';
 export class ContactComponent {
   contactForm: FormGroup;
   contact: Contact | undefined;
-
-  constructor(private fb: FormBuilder, private contactService:ContactService, private route:ActivatedRoute, private router: Router) {
+  @Input() contactId: any;
+  @Output() getAllContact =  new EventEmitter<void>();
+  constructor(private fb: FormBuilder, private contactService:ContactService, 
+              public activeModal: NgbActiveModal, private toastrService: ToastrService) {
     // Initialize the form with validation
     this.contactForm = this.fb.group({
       id: [0],
@@ -24,11 +27,8 @@ export class ContactComponent {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(p => {
-      let id = p['id'];
-      //console.log(id);
-      if (id != undefined) {
-        this.contactService.get(id).subscribe(res => {
+      if (this.contactId != 0) {
+        this.contactService.get(this.contactId).subscribe(res => {
           if (res.status == 200 && res.body != null) {
             this.contact = res.body;
             //console.log(this.contact);
@@ -39,7 +39,6 @@ export class ContactComponent {
           }
         });
       }
-    });
   }
 
   saveData(){
@@ -48,7 +47,8 @@ export class ContactComponent {
       if (this.contactForm.value.id > 0) {
         this.contactService.update(this.contactForm.value).subscribe(res => {
           if (res.status == 200) {
-            this.router.navigate(['/contacts']);
+            this.toastrService.success('Contact update successful.');
+            this.getAllContact.emit();
           }
         });
       }
@@ -56,11 +56,16 @@ export class ContactComponent {
       else{
         this.contactService.add(this.contactForm.value).subscribe(res => {
           if (res.status == 201) {
-            this.router.navigate(['/contacts']);
+            this.toastrService.success('Contact add successful.');
+            this.getAllContact.emit();
           }
         });
       }
     }
+  }
+
+  closeModal() {
+    this.activeModal.close();
   }
   
 }
